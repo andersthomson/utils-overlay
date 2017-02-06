@@ -11,6 +11,7 @@ DESCRIPTION="Do a glsa check and mail it"
 LICENSE="AS-IS"
 SLOT="0"
 IUSE=""
+KEYWORDS="amd64 arm"
 
 DEPENDS=""
 RDEPEND="app-portage/gentoolkit
