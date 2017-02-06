@@ -1,0 +1,7 @@
+[Timer]
+OnCalendar=daily
+AccuracySec=1m
+Persistent=true
+
+[Install]
+WantedBy=multi-user.target

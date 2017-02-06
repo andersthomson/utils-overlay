@@ -1,0 +1,18 @@
+[Unit]
+Description=Glsa-check
+After=network.target
+
+[Service]
+ExecStart=/bin/sh -c 'glsa-check  --nocolor --list affected | mail -s "glsa-check@`hostname`" root'
+PrivateTmp=yes
+ProtectSystem=full
+ProtectHome=yes
+NoNewPrivileges=yes
+CPUQuota=1%
+MemoryLimit=50M
+BlockIOWeight=10
+DevicePolicy=closed
+
+[Install]
+WantedBy=multi-user.target
+
