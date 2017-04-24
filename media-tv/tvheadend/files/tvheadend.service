@@ -6,7 +6,7 @@ After=network.target
 Type=forking
 PIDFile=/run/tvheadend.pid
 ExecStart=/usr/bin/tvheadend -f -p /run/tvheadend.pid -C -c /etc/tvheadend -u tvheadend -g video
-ExecStop=/usr/bin/rm /run/tvheadend.pid
+ExecStop=/bin/rm /run/tvheadend.pid
 Restart=always
 RestartSec=5
 
