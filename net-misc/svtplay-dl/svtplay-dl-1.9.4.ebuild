@@ -13,7 +13,7 @@ EGIT_COMMIT="1.9.4"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~arm ~amd64"
 
 DEPEND="dev-python/pycrypto
 	media-video/rtmpdump"
