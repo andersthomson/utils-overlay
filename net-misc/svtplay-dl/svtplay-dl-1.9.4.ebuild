@@ -15,9 +15,10 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~arm ~amd64"
 
-DEPEND="dev-python/pycrypto
+DEPEND_COMMON="dev-python/pycrypto
 	media-video/rtmpdump"
-RDEPEND="${DEPEND}"
+DEPEND="app-arch/zip"
+RDEPEND="${DEPEND_COMMON}"
 
 src_install() {
 	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr" install
