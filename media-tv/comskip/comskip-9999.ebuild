@@ -8,7 +8,20 @@ inherit eutils autotools git-r3 toolchain-funcs
 
 DESCRIPTION="Comskip"
 HOMEPAGE="https://https://github.com/erikkaashoek/Comskip/"
-EGIT_REPO_URI="https://github.com/erikkaashoek/Comskip.git"
+
+if [[ ${PV#9999} != ${PV} ]]; then
+		EGIT_REPO_URI="https://github.com/erikkaashoek/Comskip.git"
+        KEYWORDS=""
+else
+        #expect a PV of the form 0.0_p1234 where 1234 is the svn revision
+		EGIT_REPO_URI="https://github.com/erikkaashoek/Comskip.git"
+		case $PV in
+			"0.82.006_p16") EGIT_COMMIT="26de6b88b6c7e2f50c9ae109a79214a74de39960" ;;
+			*) die "No version given"
+		esac
+        KEYWORDS="~amd64 ~x86 ~arm"
+fi
+
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -26,13 +39,14 @@ DEPEND="${RDEPEND}"
 
 DOCS=( README.md )
 
-#pkg_setup() {
-#	enewuser tvheadend -1 -1 /dev/null video
-#}
-
 src_prepare() {
 #	# remove '-Werror' wrt bug #438424
 #	sed -e 's:-Werror::' -i Makefile || die 'sed failed!'
+	XTRACOMMITS=`git describe --tags | cut -d- -f2`
+	if [ "$XTRACOMMITS" ] ; then
+		sed -ie 's/"\r$/.'$XTRACOMMITS'"\r/'  comskip.h
+	fi
+	cat comskip.h
 	eautoreconf
 }
 
