@@ -9,7 +9,7 @@ inherit git-r3 distutils-r1
 
 DESCRIPTION="Small command-line program to download videos"
 HOMEPAGE="https://github.com/spaam/svtplay-dl"
-EGIT_REPO_URI="git://github.com/spaam/svtplay-dl"
+EGIT_REPO_URI="https://github.com/spaam/svtplay-dl.git"
 
 LICENSE="MIT"
 SLOT="0"
