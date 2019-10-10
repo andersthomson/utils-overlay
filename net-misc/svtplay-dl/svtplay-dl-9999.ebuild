@@ -17,7 +17,7 @@ KEYWORDS=""
 
 DEPEND="dev-python/pycrypto
 	media-video/rtmpdump"
-BDEPEND="app-arch/uzip"
+BDEPEND="app-arch/zip"
 RDEPEND="${DEPEND}"
 
 src_install() {
