@@ -15,8 +15,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS=""
 
-DEPEND="dev-python/pycrypto
-	media-video/rtmpdump"
+DEPEND="dev-python/pycrypto"
 BDEPEND="app-arch/zip"
 RDEPEND="${DEPEND}"
 
